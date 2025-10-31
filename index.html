@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Bus Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      border-radius: 12px;
+      display: none;
+    }
+    
+  </style>
+</head>
+<body class="light">
+  <!-- Floating Buses -->
+  <div class="bus-icon" style="left: 5%;">🚌</div>
+  <div class="bus-icon" style="left: 15%;">🚌</div>
+  <div class="bus-icon" style="left: 25%;">🚌</div>
+  <div class="bus-icon" style="left: 35%;">🚌</div>
+  <div class="bus-icon" style="left: 45%;">🚌</div>
+  <div class="bus-icon" style="left: 55%;">🚌</div>
+  <div class="bus-icon" style="left: 65%;">🚌</div>
+  <div class="bus-icon" style="left: 75%;">🚌</div>
+  <div class="bus-icon" style="left: 85%;">🚌</div>
+  <div class="bus-icon" style="left: 95%;">🚌</div>
+
+  <!-- Top Navigation Bar -->
+  <div class="topbar">
+    <div class="brand">🚌 Campus Bus Tracker</div>
+
+    <!-- Hamburger for Mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      
+    </nav>
+
+    <button id="theme-toggle" class="btn-dark">🌙</button>
+
+    <button class="btn-dark" onclick="logout()">
+      <i data-feather="log-out"></i> Logout
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>Welcome to Campus Bus Tracker</h2>
+    <p>Select your city and bus number to track real-time location.</p>
+
+    <!-- Form Card -->
+    <div class="card">
+      <label for="city">Select City:</label>
+      <select id="city" name="city" onchange="updateBuses()">
+        <option value="">--Select City--</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Guntur">Guntur</option>
+        <option value="Vijayawada">Vijayawada</option>
+      </select>
+
+      <label for="bus">Select Bus:</label>
+      <select id="bus" name="bus">
+        <option value="">--Select Bus--</option>
+      </select>
+
+      <button type="button" class="btn-track" onclick="trackBus()">
+        🚌 Track Bus
+      </button>
+    </div>
+
+    <!-- Result Area -->
+    <div id="result" class="result"></div>
+    <div id="map"></div>
+  </div>
+  <div id="eta" style="margin-top:10px; font-size:18px; font-weight:bold; color:#ac1919; display:none;">
+  ⏰ ETA will appear here...
+</div>
+
+  
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDIAWS5-QbQDCaLMSbFJ17wlEbS_bjHGY&callback=initMap" async defer></script>
+</body>
+</html>

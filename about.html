@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Campus Bus Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="light-mode"> <!-- default theme -->
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🚌 Campus Bus Tracker</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <button class="dark-toggle" id="theme-toggle">
+      <i data-feather="moon"></i>
+    </button>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <h1>About Campus Bus Tracker</h1>
+      <p>
+        The <b>Campus Bus Tracker</b> is a smart solution developed for 
+        <b>Vignan University</b> students and staff to track real-time 
+        locations of campus buses. 🚍  
+      </p>
+      <div class="cards">
+        <div class="card">
+          <i data-feather="map-pin"></i>
+          <h3>Real-Time GPS Tracking</h3>
+          <p>View live bus locations updated directly from the driver’s GPS device.</p>
+        </div>
+        <div class="card">
+          <i data-feather="users"></i>
+          <h3>Student Friendly</h3>
+          <p>Choose your city and bus number for a personalized tracking experience.</p>
+        </div>
+        <div class="card">
+          <i data-feather="smartphone"></i>
+          <h3>Mobile Optimized</h3>
+          <p>Fully responsive design ensures smooth experience on phones & laptops.</p>
+        </div>
+      </div>
+      <p class="footer-note">Created by Vignan Students ❤️ | 2025</p>
+    </div>
+  </section>
+
+  <script>
+    feather.replace();
+
+    const body = document.body;
+    const themeToggle = document.getElementById("theme-toggle");
+
+    // Load saved theme from localStorage
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.replace("light-mode", "dark-mode");
+      themeToggle.innerHTML = feather.icons.sun.toSvg();
+    }
+
+    // Toggle theme + save choice
+    themeToggle.addEventListener("click", () => {
+      if (body.classList.contains("light-mode")) {
+        body.classList.replace("light-mode", "dark-mode");
+        localStorage.setItem("theme", "dark");
+        themeToggle.innerHTML = feather.icons.sun.toSvg();
+      } else {
+        body.classList.replace("dark-mode", "light-mode");
+        localStorage.setItem("theme", "light");
+        themeToggle.innerHTML = feather.icons.moon.toSvg();
+      }
+    });
+  </script>
+</body>
+</html>

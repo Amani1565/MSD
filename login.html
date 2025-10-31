@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Bus Tracker - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe); 
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    .bus-icon {
+      font-size: 50px;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #007BFF;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-container button:hover {
+      background: #0056b3;
+    }
+    .login-container p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="bus-icon">🚌</div>
+    <h2>Campus Bus Tracker</h2>
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="regno" placeholder="Register Number" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>🚌 Track your campus bus in real-time!</p>
+  </div>
+  
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault(); // stop form from refreshing
+
+      const regno = document.getElementById("regno").value.trim();
+      const pass = document.getElementById("password").value;
+
+      // Regex: 231FA0 followed by exactly 4 digits
+      const regPattern = /^231FA0\d{4}$/;
+
+      if (regPattern.test(regno) && pass === "Vignan@123") {
+        // ✅ Successful login
+        window.location.href = "index.html"; 
+      } else {
+        alert("Invalid login! Try again.");
+      }
+    }
+  </script>
+</body>
+</html>
